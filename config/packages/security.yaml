@@ -1,0 +1,35 @@
+security:
+    enable_authenticator_manager: true
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        rosaly_admins:
+            entity:
+                class: 'App\Entity\AdminRosaly'
+                property: 'email'
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        rosaly_admins:
+            pattern: ^/
+            provider: rosaly_admins
+            form_login:
+                login_path: login
+                check_path: login
+                enable_csrf: true
+            logout:
+                path: logout
+                target: login
+            # configure the form authentication as the entry point for unauthenticated users
+            entry_point: form_login
+    encoders:
+        # use your user class name here
+        App\Entity\AdminRosaly:
+            algorithm: auto
+
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/, roles: ROLE_ADMIN_ROSALY}

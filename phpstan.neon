@@ -1,0 +1,13 @@
+parameters:
+    doctrine:
+        objectManagerLoader: tests/object-manager.php
+    ignoreErrors:
+        - '#Call to an undefined method Doctrine\\Persistence\\ObjectManager::createQueryBuilder\(\).#'
+    # Commented-out because in CI it will fails, as phpunit will itself do a composer install
+    # internally, and as January 2021, I haven't found a way to run this without running the test
+    # at least once
+    #
+    # locally you can uncomment this line
+    #
+    #bootstrapFiles:
+    #   - vendor/bin/.phpunit/phpunit-7.5-0/vendor/autoload.php

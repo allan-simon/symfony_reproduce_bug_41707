@@ -1,0 +1,3 @@
+knp_paginator:
+    template:
+        pagination: 'company_admins_fragments/pagination.html.twig'

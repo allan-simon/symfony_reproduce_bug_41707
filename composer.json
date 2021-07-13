@@ -1,0 +1,128 @@
+{
+    "type": "project",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "_comment": "we use this waiting this PR to be merged: https://github.com/B-Galati/monolog-sentry-handler/pull/25",
+            "type": "git",
+            "url": "https://github.com/Wirone/monolog-sentry-handler.git"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.5",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "aws/aws-sdk-php": "^3.176",
+        "beberlei/doctrineextensions": "^1.2",
+        "bgalati/monolog-sentry-handler": "master",
+        "bref/bref": "^1.2",
+        "chrisguitarguy/request-id-bundle": "^4.2",
+        "composer/package-versions-deprecated": "1.11.99.1",
+        "doctrine/annotations": "^1.0",
+        "doctrine/doctrine-bundle": "^2.2",
+        "doctrine/doctrine-migrations-bundle": "^3.0",
+        "doctrine/orm": "^2.7",
+        "easycorp/easyadmin-bundle": "^3.1",
+        "firebase/php-jwt": "^5.2",
+        "guzzlehttp/guzzle": "^7.0",
+        "guzzlehttp/promises": "^1.4",
+        "knplabs/knp-paginator-bundle": "^5.3",
+        "nyholm/psr7": "^1.3",
+        "phpdocumentor/reflection-docblock": "^5.2",
+        "phpseclib/phpseclib": "~3.0",
+        "sensio/framework-extra-bundle": "*",
+        "symfony/asset": "5.3.*",
+        "symfony/console": "5.3.*",
+        "symfony/dotenv": "5.3.*",
+        "symfony/expression-language": "5.3.*",
+        "symfony/flex": "^1.3.1",
+        "symfony/form": "5.3.*",
+        "symfony/framework-bundle": "5.3.*",
+        "symfony/http-client": "5.3.*",
+        "symfony/intl": "5.3.*",
+        "symfony/mailer": "5.3.*",
+        "symfony/mailjet-mailer": "5.3.*",
+        "symfony/mime": "5.3.*",
+        "symfony/monolog-bundle": "^3.6",
+        "symfony/notifier": "5.3.*",
+        "symfony/process": "5.3.*",
+        "symfony/property-access": "5.3.*",
+        "symfony/property-info": "5.3.*",
+        "symfony/rate-limiter": "5.3.*",
+        "symfony/security-bundle": "5.3.*",
+        "symfony/serializer": "5.3.*",
+        "symfony/string": "5.3.*",
+        "symfony/translation": "5.3.*",
+        "symfony/twig-bundle": "^5.3",
+        "symfony/uid": "5.3.*",
+        "symfony/validator": "5.3.*",
+        "symfony/web-link": "5.3.*",
+        "symfony/webpack-encore-bundle": "^1.8",
+        "symfony/yaml": "5.3.*",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/intl-extra": "^3.1",
+        "twig/twig": "^2.12|^3.0"
+    },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "fakerphp/faker": "^1.12",
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^0.12.63",
+        "phpstan/phpstan-doctrine": "^0.12.22",
+        "symfony/browser-kit": "^5.3",
+        "symfony/css-selector": "^5.3",
+        "symfony/debug-bundle": "^5.3",
+        "symfony/maker-bundle": "^1.0",
+        "symfony/phpunit-bridge": "^5.1",
+        "symfony/stopwatch": "^5.3",
+        "symfony/var-dumper": "^5.3",
+        "symfony/web-profiler-bundle": "^5.3",
+        "psy/psysh": "@stable",
+        "theofidry/psysh-bundle": "^4.3"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.3.*"
+        }
+    }
+}
